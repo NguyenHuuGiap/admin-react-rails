@@ -5,13 +5,12 @@ import Logout from './Body/Logout';
 import { connect } from 'react-redux'
 
 export class Main extends Component {
-  isAuth() {
-    console.log(!this.props.data.authToken);
-    
-    if(!this.props.data.authToken){
+  componentWillMount() {
+    if(!window.sessionStorage.authToken){
       return this.props.history.push("/login")
     }
   }
+
   render() {
     return (
       <Fragment>
@@ -23,7 +22,6 @@ export class Main extends Component {
         <title>SB Admin - Dashboard</title>
         <Nav/>
         <Body/>
-        {() => this.isAuth()}
         <a className="scroll-to-top rounded" href="#page-top">
           <i className="fas fa-angle-up" />
         </a>
@@ -39,4 +37,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps)(Main);  

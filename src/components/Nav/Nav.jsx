@@ -1,6 +1,29 @@
 import React, { Component } from 'react'
+import store from '../../Redux/Store';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 
-export default class Nav extends Component {
+export class Nav extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isShow: false
+    }
+  }
+
+  dropDownLogout() {
+    this.setState(
+      {
+        isShow: !this.state.isShow
+      }
+    );
+  }
+
+  logOut() {
+    window.sessionStorage.removeItem("authToken");
+    this.props.history.push("/login")
+  }
+
   render() {
     return (
       <nav className="navbar navbar-expand navbar-dark bg-dark static-top">
@@ -10,50 +33,17 @@ export default class Nav extends Component {
         </button>
         {/* Navbar Search */}
         <form className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-          <div className="input-group">
-            <input type="text" className="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-            <div className="input-group-append">
-              <button className="btn btn-primary" type="button">
-                <i className="fas fa-search" />
-              </button>
-            </div>
-          </div>
         </form>
         {/* Navbar */}
         <ul className="navbar-nav ml-auto ml-md-0">
-          <li className="nav-item dropdown no-arrow mx-1">
-            <a className="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i className="fas fa-bell fa-fw" />
-              <span className="badge badge-danger">9+</span>
-            </a>
-            <div className="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-              <a className="dropdown-item" href="#">Action</a>
-              <a className="dropdown-item" href="#">Another action</a>
-              <div className="dropdown-divider" />
-              <a className="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          <li className="nav-item dropdown no-arrow mx-1">
-            <a className="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i className="fas fa-envelope fa-fw" />
-              <span className="badge badge-danger">7</span>
-            </a>
-            <div className="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-              <a className="dropdown-item" href="#">Action</a>
-              <a className="dropdown-item" href="#">Another action</a>
-              <div className="dropdown-divider" />
-              <a className="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          <li className="nav-item dropdown no-arrow">
-            <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <li className={"nav-item dropdown no-arrow " + (this.state.isShow ? "show" : "")}>
+            <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded={this.state.isShow} onClick={() => this.dropDownLogout()}>
               <i className="fas fa-user-circle fa-fw" />
             </a>
-            <div className="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-              <a className="dropdown-item" href="#">Settings</a>
-              <a className="dropdown-item" href="#">Activity Log</a>
-              <div className="dropdown-divider" />
-              <a className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            <div className={"dropdown-menu dropdown-menu-right " + (this.state.isShow ? "show" : "")} aria-labelledby="userDropdown">
+              <a className="dropdown-item" href="#" data-toggle="modal"
+                onClick={() => this.logOut()} data-target="#logoutModal">Logout</a>
             </div>
           </li>
         </ul>
@@ -61,3 +51,4 @@ export default class Nav extends Component {
     )
   }
 }
+export default withRouter(Nav);

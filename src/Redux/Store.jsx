@@ -1,36 +1,35 @@
 import { createStore } from 'redux';
-import { access } from 'fs';
 
-let oldState = {
+let initState = {
+  accounts: [],
   authToken: null
 }
 
-let reducer = (state = oldState, action) => {
+let reducer = (state = initState, action) => {
   switch (action.type) {
       case "Login":
-          return { ...state, authToken: action.authToken }
+        return { ...state, authToken: action.authToken }
+      case "LOGOUT":
+        return { ...state, authToken: null }
       case "CHANGE_EDIT":
-          return { ...state, editStatus: !state.editStatus }
+        return { ...state, editStatus: !state.editStatus }
+      case "LIST_USER":
+        return { ...state, accounts: action.accounts }
       case "ADD_ITEM":
-          return { ...state, num: [...state.num, action.newItem] }
-      case "DEL_ITEM":
-          return { ...state, num: state.num.filter((val, key) => key !== action.index) }
+        return { ...state, num: [...state.num, action.newItem] }
+      case "REMOVE_USER":
+        const accounts = state.accounts.filter(account => account.id !== action.idAccount)
+        return { ...state, accounts: accounts }
       default:
-          break;
+        break;
   }
   return state
 }
 
 let store = createStore(reducer)
 // subscribe
-store.subscribe(() => {
-  console.log("subscribe", store.getState());
-})
-
-// store.dispatch({ type: 'CHANGE_EDIT' })
-
-// store.dispatch({ type: 'ADD_ITEM', newItem: "tai nghe" })
-
-// store.dispatch({ type: 'DEL_ITEM', index: 0 })
+// store.subscribe(() => {
+//   console.log("subscribe", store.getState());
+// })
 
 export default store
