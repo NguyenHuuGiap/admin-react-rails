@@ -5,6 +5,10 @@ import Logout from './Body/Logout';
 import { connect } from 'react-redux'
 
 export class Main extends Component {
+  constructor(props){
+    super(props)
+  }
+
   componentWillMount() {
     if(!window.sessionStorage.authToken){
       return this.props.history.push("/login")
@@ -20,12 +24,12 @@ export class Main extends Component {
         <meta name="description" content />
         <meta name="author" content />
         <title>SB Admin - Dashboard</title>
-        <Nav/>
-        <Body/>
+        <Nav env_url={this.props.env_url}/>
+        <Body env_url={this.props.env_url} />
         <a className="scroll-to-top rounded" href="#page-top">
           <i className="fas fa-angle-up" />
         </a>
-        <Logout/>
+        <Logout env_url={this.props.env_url} />
       </Fragment>
     )
   }

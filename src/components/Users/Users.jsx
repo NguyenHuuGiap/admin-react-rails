@@ -21,7 +21,7 @@ export class Users extends Component {
   async fetchData() {
     try {
       let token = 'Bearer ' + window.sessionStorage.authToken
-      const response = await fetch(`http://172.16.1.18:8080/api/v1/accounts`, {
+      const response = await fetch(`https://react-exm.herokuapp.com/api/v1/accounts`, {
         method: 'GET',
         headers: {
           Accept: 'application/json',
@@ -48,7 +48,7 @@ export class Users extends Component {
 
   destroyUser() {
     let token = 'Bearer ' + window.sessionStorage.authToken
-    let url = "http://172.16.1.18:8080/api/v1/accounts/" + this.props.match.params.id
+    let url = "https://react-exm.herokuapp.com/api/v1/accounts/" + this.props.match.params.id
     fetch(url, {
       method: 'DELETE',
       headers: {

@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <RouterLink data={this.props.data}/>
+        <RouterLink data={this.props.data} env_url={"http://172.16.1.18:8080"}/>
       </div>
     );
   }

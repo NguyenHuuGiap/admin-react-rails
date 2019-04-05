@@ -45,7 +45,7 @@ export class User extends Component {
 
   destroyUser() {
     let token = 'Bearer ' + window.sessionStorage.authToken
-    let url = "http://172.16.1.18:8080/api/v1/accounts/" + this.props.account.id
+    let url = "https://react-exm.herokuapp.com/api/v1/accounts/" + this.props.account.id
     fetch(url, {
       method: 'DELETE',
       headers: {

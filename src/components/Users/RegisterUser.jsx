@@ -20,7 +20,7 @@ export class RegisterUser extends Component {
 
   registerUser() {
     let token = 'Bearer ' + window.sessionStorage.authToken
-    let url = "http://172.16.1.18:8080/api/v1/accounts/"
+    let url = "https://react-exm.herokuapp.com/api/v1/accounts/"
     fetch(url, {
       method: 'POST',
       headers: {

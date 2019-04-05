@@ -7,7 +7,7 @@ export default class Login extends Component {
   }
 
   sendData() {
-    fetch('http://172.16.1.18:8080/api/v1/account/sign_in', {
+    fetch('https://react-exm.herokuapp.com/api/v1/account/sign_in', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -29,7 +29,7 @@ export default class Login extends Component {
           this.props.history.push(`/dashboard`)
         )
       }else {
-        alert("Login fail")
+        alert(data.error.error_message)
       }
     })
     .catch(error => {

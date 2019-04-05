@@ -21,7 +21,7 @@ export class DetailUser extends Component {
 
   async fetchDataUser() {
     try {
-      let url = "http://172.16.1.18:8080/api/v1/accounts/" + this.props.match.params.id
+      let url = "https://react-exm.herokuapp.com/api/v1/accounts/" + this.props.match.params.id
       let token = 'Bearer ' + window.sessionStorage.authToken
       const response = await fetch(url, {
         method: 'GET',
@@ -43,7 +43,7 @@ export class DetailUser extends Component {
 
   updateUser() {
     let token = 'Bearer ' + window.sessionStorage.authToken
-    let url = "http://172.16.1.18:8080/api/v1/accounts/" + this.props.match.params.id
+    let url = "https://react-exm.herokuapp.com/api/v1/accounts/" + this.props.match.params.id
     fetch(url, {
       method: 'PATCH',
       headers: {
