@@ -2,7 +2,9 @@
   "name": "user-project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://giapnh.github.io/admin-react-rails",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^6.0.1",
@@ -15,6 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b develop -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
