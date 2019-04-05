@@ -10,7 +10,7 @@ export default class RouterLink extends Component {
   render() {
     return (
       <Router>
-        <Route path="/login" component={Login} data={this.props.data} env_url={this.props.env_url} />
+        <Route exact path="/" component={Login} data={this.props.data} env_url={this.props.env_url} />
         <Route path="/dashboard" component={Main} data={this.props.data} env_url={this.props.env_url} />
       </Router>
     )

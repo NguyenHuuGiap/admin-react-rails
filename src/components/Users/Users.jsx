@@ -10,7 +10,7 @@ export class Users extends Component {
 
   componentDidUpdate() {    
     if(!window.sessionStorage.authToken){
-      return this.props.history.push("/login")
+      return this.props.history.push("/")
     }
   }
 

@@ -21,7 +21,7 @@ export class Nav extends Component {
 
   logOut() {
     window.sessionStorage.removeItem("authToken");
-    this.props.history.push("/login")
+    this.props.history.push("/")
   }
 
   render() {

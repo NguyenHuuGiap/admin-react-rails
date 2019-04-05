@@ -11,7 +11,7 @@ export class Main extends Component {
 
   componentWillMount() {
     if(!window.sessionStorage.authToken){
-      return this.props.history.push("/login")
+      return this.props.history.push("/")
     }
   }
 
