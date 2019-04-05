@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/admin-react-rails/static/media/fa-brands-400.d6ff69c8.woff"
   },
   {
-    "revision": "892c5f4f9bf60475531e",
+    "revision": "4fef9b849ac7eff6b6bc",
     "url": "/admin-react-rails/static/css/main.3d853a16.chunk.css"
   },
   {
@@ -40,8 +40,8 @@ self.__precacheManifest = [
     "url": "/admin-react-rails/static/media/fa-solid-900.52134b92.woff2"
   },
   {
-    "revision": "892c5f4f9bf60475531e",
-    "url": "/admin-react-rails/static/js/main.9ecd6d6b.chunk.js"
+    "revision": "4fef9b849ac7eff6b6bc",
+    "url": "/admin-react-rails/static/js/main.9f5ebad0.chunk.js"
   },
   {
     "revision": "a6de637ca793ed8092597012d691a6a0",
@@ -60,12 +60,12 @@ self.__precacheManifest = [
     "url": "/admin-react-rails/static/media/fa-regular-400.5dc39cf0.svg"
   },
   {
-    "revision": "a20e6745adc3184de8330b1f0579161f",
-    "url": "/admin-react-rails/static/media/fa-solid-900.a20e6745.eot"
-  },
-  {
     "revision": "872545dde71de3842234bf6afe80c4cb",
     "url": "/admin-react-rails/static/media/fa-solid-900.872545dd.ttf"
+  },
+  {
+    "revision": "a20e6745adc3184de8330b1f0579161f",
+    "url": "/admin-react-rails/static/media/fa-solid-900.a20e6745.eot"
   },
   {
     "revision": "c95f5f7a8923b8bb5034de9eb48901d7",
@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/admin-react-rails/static/media/fa-solid-900.56404b18.svg"
   },
   {
-    "revision": "8f4deafd7c1e50b8b1672646683ee4f2",
+    "revision": "e3818623afb75cdbe89859ace83b584f",
     "url": "/admin-react-rails/index.html"
   }
 ];
